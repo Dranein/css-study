@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>cssStudy</title>
+</head>
+<body>
+<div id="app">
+  <!--饼图-->
+  <div class="item">
+    <div class="item_title">饼图</div>
+    <div class="item_content">
+      <div class="bing"></div>
+    </div>
+  </div>
+
+  <!--SASS遍历 @for-->
+  <div class="item">
+    <div class="item_title">SASS遍历 @for</div>
+    <div class="item_content">
+      <div class="sassfor">
+        <div class="item_tip">
+          <p>@for $i from 开始值 through 结束值(包括结束值)</p>
+          <p>@for $i from 开始值 to 结束值(不包括结束值)</p>
+          <p>使用：- &:nth-child(#{$i}) - height: ($i * 15px);</p>
+        </div>
+        <div class="sassfor_case">
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--菜单-->
+  <div class="item">
+    <div class="item_title">菜单</div>
+    <div class="item_content">
+      <div class="item_tip">
+        <p>通过box-shadow添加遮罩</p>
+      </div>
+      <div class="burger_menu-warpper">
+        <div class="burger_menu burger_menu-right">
+          <div class="burger_menu-button">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+          <div class="burger_menu-content">
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>D</div>
+          </div>
+        </div>
+        <div class="burger_menu burger_menu-top">
+          <div class="burger_menu-button">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+          <div class="burger_menu-content">
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>D</div>
+          </div>
+        </div>
+        <div class="burger_menu burger_menu-center">
+          <div class="burger_menu-button">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+          <div class="burger_menu-content">
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>D</div>
+          </div>
+        </div>
+        <div class="burger_menu burger_menu-bottom">
+          <div class="burger_menu-button">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+          <div class="burger_menu-content">
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>D</div>
+          </div>
+        </div>
+        <div class="burger_menu burger_menu-left">
+          <div class="burger_menu-button">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+          </div>
+          <div class="burger_menu-content">
+            <div>A</div>
+            <div>B</div>
+            <div>C</div>
+            <div>D</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--CSS var() 函数-->
+  <div class="item">
+    <div class="item_title">CSS var() 函数</div>
+    <div class="item_content">
+      <div class="item_tip">
+        <p>自定义属性的名称，必需以 -- 开头</p>
+        <p>可通过style.setProperty(propertyName, value)改变值</p>
+      </div>
+      <nav class="navtab">
+          <ul>
+            <li class="navtab-item">Home</li>
+            <li class="navtab-item active">Explore</li>
+            <li class="navtab-item">Notification</li>
+            <li class="navtab-item">Profile</li>
+          </ul>
+        </nav>
+    </div>
+  </div>
+</div>
+</body>
+</html>
