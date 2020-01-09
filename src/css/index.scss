@@ -115,7 +115,7 @@ body, html {
         border-radius: 8px 8px 0 0;
         background: #2f2323;
         transform: translateY(110%);
-        animation: animation_up 4s ease-in-out infinite;
+        animation: animation_up 3s ease-in-out infinite;
         animation-fill-mode: forwards;
         animation-direction: alternate;
       }
@@ -151,7 +151,6 @@ body, html {
     --menu-width: 50px;
     --menu-item-width: 40px;
 
-
     position: relative;
     z-index: 2;
     width: var(--menu-width);
@@ -159,7 +158,6 @@ body, html {
     border: solid 2px #184f54;
     background: #184f54;
     border-radius: 50%;
-    overflow: hidden;
     transition: 0.6s ease-in-out;
 
     &-button {
@@ -224,6 +222,8 @@ body, html {
       flex-direction: row;
       align-items: center;
       justify-content: center;
+      transform: scale(0);
+      transition: transform 0.3s ease-in-out;
       & > div {
         width: var(--menu-item-width);
         height: var(--menu-item-width);
@@ -323,21 +323,6 @@ body, html {
       }
     }
 
-    &-center {
-      .burger_menu-content {
-        top: 0;
-        bottom: 0;
-        width: calc(var(--menu-item-number) * var(--menu-item-width) + var(--menu-width) * 4);
-        justify-content: space-between;
-        transform: translateX(calc(-50% + var(--menu-width) / 2));
-        & > div {
-          position: absolute;
-          left: 50%;
-          transform: translateX(-50%);
-        }
-      }
-    }
-
     &.active {
       overflow: visible;
       z-index: 10;
@@ -360,6 +345,7 @@ body, html {
       }
 
       .burger_menu-content {
+        transform: scale(1);
         & > div {
           transform: translate(0);
           background: #146d75;
@@ -433,6 +419,129 @@ body, html {
       transition: 0.5s ease;
     }
   }
+
+  // 文字特效
+  .world_item {
+    --world-number: 0;
+
+    position: relative;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    background: #f0ffff;
+    color: #666;
+    font-size: 15px;
+    margin-bottom: 10px;
+    &.world_item1 {
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        width: 100%;
+        top: 0;
+        bottom: 0;
+        background: #f0ffff;
+        animation: calc(var(--world-number) * 0.15s) ease-in-out typing infinite;
+        //steps(var(--world-number), start)
+      }
+
+      @keyframes typing {
+        to {
+          transform: translateX(calc(var(--world-number) * 1em));
+        }
+      }
+    }
+
+    &.world_item2 {
+      text-overflow: inherit;
+      width: 0;
+      border-right: 1px solid #666;
+      animation: calc(var(--world-number) * 0.2s) steps(calc(var(--world-number) + 1)) typing2 infinite,
+                 0.5s borderRight step-end infinite;
+      @keyframes typing2 {
+        to { width: calc(var(--world-number) * 1em + 1em); }
+      }
+
+      @keyframes borderRight {
+        50% { border-right: 1px solid transparent }
+      }
+    }
+
+    &.world_item3 {
+      height: 20px;
+      line-height: 20px;
+      border-right: 1px solid #666;
+      animation: 0.5s borderRight step-end infinite;
+      display: inline-block;
+      @keyframes borderRight {
+        50% { border-right: 1px solid transparent }
+      }
+    }
+
+
+  }
+
+  .glowIn {
+    background: #111111;
+    text-align: left;
+    line-height: 1.8;
+    color: #ab5104;
+
+    &.glowIn-title {
+      font-size: 25px;
+      font-weight: bold;
+      text-align: center;
+    }
+    span {
+      animation: glowIn 0.8s ease both;
+    }
+
+    @keyframes glowIn {
+      from {
+        opacity: 0;
+      }
+      65% {
+        opacity: 1;
+        text-shadow: 0 0 10px #ab5104;
+      }
+      75% {
+        opacity: 1;
+      }
+      to {
+        opacity: 0.7;
+      }
+    }
+  }
+
+  .worldNeon {
+    margin-top: 20px;
+    padding: 10px;
+    background: #111;
+    text-align: center;
+    color: #cce7f8;
+    font-size: 2.5rem;
+    animation: shining 0.2s alternate infinite;
+  }
+
+  @keyframes shining {
+    from {
+      text-shadow: 0 0 6px rgba(182, 211, 207, 0.9),
+      0 0 30px rgba(182, 211, 207, 0.3),
+      0 0 12px rgba(15, 115, 223, 0.5),
+      0 0 21px rgba(15, 115, 223, 0.9),
+      0 0 34px rgba(15, 115, 223, 0.8),
+      0 0 54px rgba(15, 115, 223, 0.9);
+    }
+    to {
+      text-shadow: 0 0 6px rgba(182, 211, 207, 1),
+      0 0 30px rgba(182, 211, 207, 0.4),
+      0 0 12px rgba(15, 115, 223, 0.6),
+      0 0 22px rgba(15, 115, 223, 0.8),
+      0 0 38px rgba(15, 115, 223, 0.9),
+      0 0 60px rgba(15, 115, 223, 1);
+    }
+  }
+
 }
 
 
